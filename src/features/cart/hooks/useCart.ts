@@ -9,7 +9,13 @@ const useCart = () => {
 
   const addItem = (item: IItem) => {
     const items: IItem[] = [...cart.items];
-    items.push(item);
+    const itemIndex = items.findIndex((e) => e.product.id === item.product.id);
+
+    if (itemIndex !== -1) {
+      items[itemIndex] = item;
+    } else {
+      items.push(item);
+    }
     dispatchItems(items);
   };
 
@@ -22,11 +28,7 @@ const useCart = () => {
   };
 
   const calcSubtotal = (items: IItem[]) => {
-    const newSubtotal = items.reduce(
-      (acc, cur) => acc + cur.value * cur.quantity,
-      0
-    );
-
+    const newSubtotal = items.reduce((acc, cur) => acc + cur.value, 0);
     return newSubtotal;
   };
 

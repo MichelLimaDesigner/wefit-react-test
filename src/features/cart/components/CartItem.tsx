@@ -6,33 +6,43 @@ import minusIcon from "../../../assets/img/icons/minus.png";
 import plusIcon from "../../../assets/img/icons/plus.png";
 import thrashIcon from "../../../assets/img/icons/thrash.png";
 import { convertToBRACurrency } from "../../../utils/convertToBRACurrency";
+import useCart from "../hooks/useCart";
 
 interface ICardItem {
   item: IItem
 }
 
 const CartItem: React.FC<ICardItem> = ({item}) => {
+  // Hooks
+  const { removeItem, addItem } = useCart();
   // States
   const [quantity, setQuantity] = useState(item.quantity);
-  const [subTotal, setsubTotal] = useState(item.value);
+  const subTotal = quantity * item.product.price;
 
   const handleInputQuantity = (value: string) => {
     const newQuantity = parseInt(value);
-    if(newQuantity > 0) setQuantity(newQuantity);
-  }
+    if (newQuantity > 0) {
+      setQuantity(newQuantity);
+    }
+  };
 
   const handleIncreaseQtd = () => {
-    setQuantity(qtd => qtd + 1);
-  }
+    setQuantity((qtd) => qtd + 1);
+  };
 
   const handleDecreaseQtd = () => {
-    if(quantity > 1) setQuantity(qtd => qtd - 1);
-  }
+    if (quantity > 1) setQuantity((qtd) => qtd - 1);
+  };
 
   useEffect(() => {
-    const newSubtotal = item.value * quantity;
-    setsubTotal(newSubtotal);
-  }, [item.value, quantity]);
+    const newItem: IItem = {
+      product: item.product,
+      quantity: quantity,
+      value: subTotal
+    }
+
+    addItem(newItem);
+  }, [quantity])
 
   return (
     <Item>
@@ -57,7 +67,7 @@ const CartItem: React.FC<ICardItem> = ({item}) => {
 
       <ItemPrice>{convertToBRACurrency(subTotal)}</ItemPrice>
 
-      <ButtonIcon className="text-right">
+      <ButtonIcon className="text-right" onClick={() => removeItem(item.product.id)}>
         <img src={thrashIcon} />
       </ButtonIcon>
     </Item>
