@@ -25,6 +25,16 @@ export const Cart = styled.div`
     font-size: 1rem;
     font-weight: 600;
   }
+
+  @media (max-width: 600px) {
+    a {
+      gap: 1rem;
+    }
+
+    h5 {
+      display: none;
+    }
+  }
 `;
 
 export const Itens = styled.p`

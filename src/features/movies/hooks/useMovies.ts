@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Product } from "../movies.types";
+import { IProduct } from "../movies.types";
 import { getMoviesService } from "../services/MoviesService";
 
 const useMovies = () => {
-  const [movies, setMovies] = useState<Product[]>([]);
+  const [movies, setMovies] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
 

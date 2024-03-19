@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeCartItems, selectCart } from "../store/cartSlice";
+import { changeCartItems, resetCart, selectCart } from "../store/cartSlice";
 import { IItem, IShoppingCart } from "../cart.types";
+import { useNavigate } from "react-router-dom";
 
 const useCart = () => {
   // Hooks
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getItem = (itemID: number) => {
     const item = cart.items.find((item) => item.product.id === itemID);
@@ -56,11 +58,17 @@ const useCart = () => {
     dispatch(changeCartItems(newCart));
   };
 
+  const finishPurchase = () => {
+    dispatch(resetCart());
+    navigate("/compra-finalizada");
+  };
+
   return {
     cart,
     getItem,
     addItem,
     removeItem,
+    finishPurchase,
   };
 };
 

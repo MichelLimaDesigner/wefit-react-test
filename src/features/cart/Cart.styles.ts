@@ -20,6 +20,10 @@ export const ContentHeader = styled.div`
   font-weight: 700;
   color: var(--text-gray-light);
   margin-bottom: 2rem;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const Item = styled.div`
@@ -28,6 +32,11 @@ export const Item = styled.div`
   grid-template-columns: 2fr 2fr 2fr 1fr;
   align-items: center;
   margin-bottom: 2rem;
+  position: relative;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const ItemHeader = styled.div`
@@ -67,17 +76,33 @@ export const ItemQtdInput = styled.div`
     padding: 0.25rem 1rem;
     text-align: center;
   }
+
+  @media (max-width: 600px) {
+    input {
+      width: 1.5rem;
+    }
+  }
 `;
 
 export const ItemPrice = styled.h5`
   font-weight: 700;
   font-size: 1rem;
+
+  @media (max-width: 600px) {
+    display: none;
+
+    &.mobile {
+      display: block;
+    }
+  }
 `;
 
 export const TotalPrice = styled.div`
+  width: 100%;
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  justify-content: end;
 
   h3 {
     font-weight: 700;
@@ -89,6 +114,11 @@ export const TotalPrice = styled.div`
     font-size: 1rem;
     color: var(--text-gray-light);
   }
+
+  @media (max-width: 600px) {
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
 `;
 
 export const ContentFooter = styled.div`
@@ -99,6 +129,61 @@ export const ContentFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+`;
+
+export const ItemMobile = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+
+  @media (min-width: 600px) {
+    display: none;
+  }
+`;
+
+export const ItemImgMobile = styled.div`
+  width: 64px;
+
+  img {
+    width: 100%;
+  }
+`;
+
+export const ItemMobileBody = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const ItemHeaderMobile = styled.div`
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+`;
+
+export const ItemInputMobile = styled.div`
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+
+  p {
+    font-size: 0.8rem;
+    color: var(--text-gray-light);
+  }
 `;
 
 export const Purchased = styled.div`

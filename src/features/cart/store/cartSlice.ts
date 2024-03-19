@@ -25,9 +25,8 @@ export const slice = createSlice({
         quantity: payload.quantity,
       };
     },
-    resetCart(...state) {
+    resetCart() {
       return {
-        ...state,
         ...initialState,
       };
     },

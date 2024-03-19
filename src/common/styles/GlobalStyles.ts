@@ -1,6 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+  body{
+    min-height: 100vh;
+  }
+
   html,
   body,
   a,

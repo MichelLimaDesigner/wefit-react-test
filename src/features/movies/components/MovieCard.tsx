@@ -1,13 +1,13 @@
 import { Card, CardImg } from "../Movies.styles"
-import addToCartImg from "../../../assets/img/icons/add-to-cart.png";
-import { Product } from "../movies.types";
+import addToCartImg from "../../../assets/img/icons/cart.svg";
+import { IProduct } from "../movies.types";
 import { convertToBRACurrency } from "../../../utils/convertToBRACurrency";
 import useCart from "../../cart/hooks/useCart";
 import { IItem } from "../../cart/cart.types";
 import Button from "../../../common/components/button/Button";
 
 interface Card {
-  product: Product
+  product: IProduct
 }
 
 const MovieCard: React.FC<Card> = ({product}) => {
@@ -33,10 +33,10 @@ const MovieCard: React.FC<Card> = ({product}) => {
       <h4>{product.title}</h4>
       <h5>{convertToBRACurrency(product.price)}</h5>
       <Button onClick={addItemToCart} isAdded={quantityInCart > 0}>
-        <figure>
+        <div>
           <img src={addToCartImg} alt="Adicionar ao Carrinho" />
           <figcaption>{quantityInCart}</figcaption>
-        </figure>
+        </div>
         ADICIONAR AO CARRINHO
       </Button>
     </Card>

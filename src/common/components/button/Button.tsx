@@ -4,11 +4,12 @@ interface IButton {
   isAdded?: boolean;
   children: React.ReactNode;
   onClick?: () => void;
+  className?: string;
 }
 
-const Button: React.FC<IButton> = ({ isAdded, children, ...props }: IButton) => {
+const Button = ({ isAdded, children, className, ...props }: IButton) => {
   return (
-    <Btn className={isAdded ? 'active' : ''} {...props}>
+    <Btn className={`${className} ${isAdded ? 'active' : ''}`} {...props}>
       <button>
         {children}
       </button>

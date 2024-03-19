@@ -7,9 +7,9 @@ import Button from "../../../common/components/button/Button";
 
 const Cart: React.FC = () => {
   // Hooks
-  const {cart} = useCart();
+  const {cart, finishPurchase} = useCart();
 
-  if(cart.quantity === 0) return <Empyt />
+  if(cart.quantity === 0) return <Empyt isError={false} />
 
   return (
     <CartContent >
@@ -30,11 +30,11 @@ const Cart: React.FC = () => {
       }
 
       <ContentFooter>
-        <Button >
+        <Button onClick={finishPurchase}>
           FINALIZAR PEDIDO
         </Button>
         <TotalPrice>
-          <h4>TOTAL:</h4>
+          <h4>TOTAL</h4>
           <h3>
             {convertToBRACurrency(cart.totalValue)}
           </h3>

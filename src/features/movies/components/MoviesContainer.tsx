@@ -1,9 +1,9 @@
 import { CardsContainer } from "../Movies.styles"
 import MovieCard from "./MovieCard";
-import { Product } from "../movies.types";
+import { IProduct } from "../movies.types";
 
 interface Container {
-  movies: Product[]
+  movies: IProduct[]
 }
 
 const MoviesContainer: React.FC<Container> = ({movies}) => {

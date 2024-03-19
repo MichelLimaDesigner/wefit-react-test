@@ -6,10 +6,9 @@ import MoviesContainer from "../../movies/components/MoviesContainer";
 const Home: React.FC = () => {
   // Hooks
   const {movies, isError, isLoading} = useMovies();
-
   if(isLoading) return <Loader />
 
-  if(isError || !isLoading && movies.length < 1) return <Empyt />
+  if(isError || !isLoading && movies.length < 1) return <Empyt isError={true}/>
 
   return(
     <div>

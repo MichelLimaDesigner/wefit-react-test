@@ -1,4 +1,4 @@
-import { Product } from "../movies/movies.types";
+import { IProduct } from "../movies/movies.types";
 
 export interface IShoppingCart {
   items: IItem[];
@@ -7,7 +7,7 @@ export interface IShoppingCart {
 }
 
 export interface IItem {
-  product: Product;
+  product: IProduct;
   quantity: number;
   value: number;
 }

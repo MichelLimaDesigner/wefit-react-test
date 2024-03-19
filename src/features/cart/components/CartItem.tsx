@@ -7,6 +7,7 @@ import plusIcon from "../../../assets/img/icons/plus.png";
 import thrashIcon from "../../../assets/img/icons/thrash.png";
 import { convertToBRACurrency } from "../../../utils/convertToBRACurrency";
 import useCart from "../hooks/useCart";
+import CardItemMobile from "./CardItemMobile";
 
 interface ICardItem {
   item: IItem
@@ -45,38 +46,51 @@ const CartItem: React.FC<ICardItem> = ({item}) => {
   }, [quantity])
 
   return (
-    <Item>
-      <ItemHeader >
-        <ItemImage >
-          <img src={item.product.image} alt="" />
-        </ItemImage>
-        <div>
-          <h3>{item.product.title}</h3>
-          <h4>{convertToBRACurrency(item.product.price)}</h4>
-        </div>
-      </ItemHeader>
+    <>
+      <Item>
+        <ItemHeader >
+          <ItemImage >
+            <img src={item.product.image} alt="" />
+          </ItemImage>
+          <div>
+            <h3>{item.product.title}</h3>
+            <h4>{convertToBRACurrency(item.product.price)}</h4>
+          </div>
+        </ItemHeader>
 
-      <ItemQtdInput>
-        <ButtonIcon onClick={handleDecreaseQtd}>
-          <img src={minusIcon} />
+        <ItemQtdInput>
+          <ButtonIcon onClick={handleDecreaseQtd}>
+            <img src={minusIcon} />
+          </ButtonIcon>
+          <input
+            type="number"
+            min={1}
+            name="quantity"
+            value={quantity}
+            onChange={(event) => handleInputQuantity(event.target.value)}
+          />
+          <ButtonIcon onClick={handleIncreaseQtd}>
+            <img src={plusIcon} />
+          </ButtonIcon>
+        </ItemQtdInput>
+
+        <ItemPrice>{convertToBRACurrency(subTotal)}</ItemPrice>
+
+        <ButtonIcon className="text-right thrash" onClick={() => removeItem(item.product.id)}>
+          <img src={thrashIcon} />
         </ButtonIcon>
-        <input
-          type="number"
-          min={1}
-          value={quantity}
-          onChange={(event) => handleInputQuantity(event.target.value)}
-        />
-        <ButtonIcon onClick={handleIncreaseQtd}>
-          <img src={plusIcon} />
-        </ButtonIcon>
-      </ItemQtdInput>
+      </Item>
 
-      <ItemPrice>{convertToBRACurrency(subTotal)}</ItemPrice>
-
-      <ButtonIcon className="text-right" onClick={() => removeItem(item.product.id)}>
-        <img src={thrashIcon} />
-      </ButtonIcon>
-    </Item>
+      <CardItemMobile
+        item={item}
+        quantity={quantity}
+        subTotal={subTotal}
+        handleDecreaseQtd={handleDecreaseQtd}
+        handleIncreaseQtd={handleIncreaseQtd}
+        handleInputQuantity={handleInputQuantity}
+        removeItem={removeItem}
+      />
+    </>
   )
 }
 
