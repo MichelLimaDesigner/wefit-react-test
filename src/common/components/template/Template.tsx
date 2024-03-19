@@ -1,10 +1,14 @@
 import { Outlet } from "react-router-dom"
-import { Main } from "./Templates.styles"
+import { Container, Main } from "./Templates.styles"
+import Menu from "../menu/Menu"
 
 const Template: React.FC = () => {
   return (
     <Main >
-      <Outlet />
+      <Container >
+        <Menu />
+        <Outlet />
+      </Container>
     </Main>
   )
 }
