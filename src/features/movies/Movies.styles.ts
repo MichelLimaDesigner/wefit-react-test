@@ -32,11 +32,17 @@ export const Card = styled.div`
 
 export const CardImg = styled.div`
   width: 100%;
+  max-width: 150px;
   height: 188px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin: auto;
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const Button = styled.button`

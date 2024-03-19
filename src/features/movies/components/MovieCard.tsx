@@ -1,15 +1,19 @@
 import { Button, Card, CardImg } from "../Movies.styles"
 import addToCartImg from "../../../assets/img/icons/add-to-cart.png";
-import viuva from "../../../assets/img/viuva-negra.png";
+import { Product } from "../movies.types";
 
-const MovieCard: React.FC = () => {
+interface Card {
+  product: Product
+}
+
+const MovieCard: React.FC<Card> = ({product}) => {
   return (
     <Card >
       <CardImg >
-        <img src={viuva} alt="" />
+        <img src={product.image} alt={product.title} />
       </CardImg>
-      <h4>Viuva negra</h4>
-      <h5>R$ 30,00</h5>
+      <h4>{product.title}</h4>
+      <h5>{product.price}</h5>
       <Button >
         <figure>
           <img src={addToCartImg} alt="Adicionar ao Carrinho" />

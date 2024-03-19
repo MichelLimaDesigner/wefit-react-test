@@ -1,15 +1,14 @@
 import api from "../../../config/api";
 import { Product } from "../movies.types";
 
-const getMovies = async () => {
+const getMoviesService = async (): Promise<Product[]> => {
   try {
-    const teste = await api.get<Product[]>("/products");
-    console.log(teste.data);
-    // return teste;
+    const products = await api.get<Product[]>("/products");
+    return products.data as Product[];
   } catch (err) {
     console.error(err);
     throw new Error();
   }
 };
 
-export { getMovies };
+export { getMoviesService };
