@@ -3,7 +3,7 @@ import { CardsContainer } from "../Movies.styles"
 import MovieCard from "./MovieCard";
 import { Product } from "../movies.types";
 import { changeCartItems, selectCart } from "../../cart/store/cartSlice";
-import { Item, ShoppingCart } from "../../cart/cart.types";
+import { IItem, IShoppingCart } from "../../cart/cart.types";
 
 interface Container {
   movies: Product[]
@@ -17,13 +17,13 @@ const MoviesContainer: React.FC<Container> = ({movies}) => {
   const handleAddItem = (product: Product) => {
     const totalValue = calcTotalValue(product.price);
     const totalQuantity = calcTotalQuantity();
-    const item: Item = {
+    const item: IItem = {
       product: product,
       quantity: 1,
       value: product.price
     }
 
-    const newCart: ShoppingCart = {
+    const newCart: IShoppingCart = {
       items: [...cart.items, item],
       quantity: totalQuantity,
       totalValue: totalValue
@@ -47,17 +47,17 @@ const MoviesContainer: React.FC<Container> = ({movies}) => {
 
   return (
     <CardsContainer >
-        {
-          movies.map(movie => {
-            return(
-              <MovieCard
-                product={movie}
-                key={movie.id}
-                handleAddItem={handleAddItem}
-              />
-            )
-          })
-        }
+      {
+        movies.map(movie => {
+          return(
+            <MovieCard
+              product={movie}
+              key={movie.id}
+              handleAddItem={handleAddItem}
+            />
+          )
+        })
+      }
     </CardsContainer>
   )
 }

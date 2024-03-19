@@ -1,12 +1,12 @@
 import { Product } from "../movies/movies.types";
 
-export interface ShoppingCart {
-  items: Item[];
+export interface IShoppingCart {
+  items: IItem[];
   quantity: number;
   totalValue: number;
 }
 
-export interface Item {
+export interface IItem {
   product: Product;
   quantity: number;
   value: number;
