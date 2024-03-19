@@ -16,6 +16,11 @@ const CartItem: React.FC<ICardItem> = ({item}) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const [subTotal, setsubTotal] = useState(item.value);
 
+  const handleInputQuantity = (value: string) => {
+    const newQuantity = parseInt(value);
+    if(newQuantity > 0) setQuantity(newQuantity);
+  }
+
   const handleIncreaseQtd = () => {
     setQuantity(qtd => qtd + 1);
   }
@@ -43,6 +48,7 @@ const CartItem: React.FC<ICardItem> = ({item}) => {
           type="number"
           min={1}
           value={quantity}
+          onChange={(event) => handleInputQuantity(event.target.value)}
         />
         <ButtonIcon onClick={handleIncreaseQtd}>
           <img src={plusIcon} />
@@ -51,7 +57,7 @@ const CartItem: React.FC<ICardItem> = ({item}) => {
 
       <ItemPrice>{convertToBRACurrency(subTotal)}</ItemPrice>
 
-      <ButtonIcon >
+      <ButtonIcon className="text-right">
         <img src={thrashIcon} />
       </ButtonIcon>
     </Item>

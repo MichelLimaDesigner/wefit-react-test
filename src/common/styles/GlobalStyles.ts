@@ -33,6 +33,10 @@ export const GlobalStyles = createGlobalStyle`
     --primary-color: #009edd;
     --secondary-color: #039b00;
   }
+
+  .text-right{
+    text-align: right;
+  }
 `;
 
 export const ButtonIcon = styled.button`

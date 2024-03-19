@@ -60,6 +60,16 @@ export const ItemPrice = styled.h5`
   font-size: 1rem;
 `;
 
+export const ContentFooter = styled.div`
+  width: 100%;
+  border-top: 1px solid;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const Purchased = styled.div`
   width: 100%;
   height: 80vh;
