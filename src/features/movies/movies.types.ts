@@ -1,9 +1,5 @@
-export interface Products {
-  products: Product[];
-}
-
 export interface Product {
-  id: 1;
+  id: number;
   title: string;
   price: number;
   image: string;
