@@ -1,9 +1,9 @@
-import Empyt from "./Empty"
+import PurchaseMade from "../../cart/components/PurchaseMade"
 
 const Home: React.FC = () => {
   return(
     <div>
-      <Empyt />
+      <PurchaseMade />
     </div>
   )
 }
