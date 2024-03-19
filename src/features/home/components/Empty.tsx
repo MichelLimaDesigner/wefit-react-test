@@ -1,6 +1,6 @@
 import { EmptyContainer, Title } from "../Home.styles"
 import emptyImg from '../../../assets/img/empty.png';
-import { Button } from "../../movies/Movies.styles";
+import Button from "../../../common/components/button/Button";
 
 const Empyt = () => {
   return (

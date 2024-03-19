@@ -1,9 +1,9 @@
 import { CartContent, ContentFooter, ContentHeader, TotalPrice } from "../Cart.styles"
 import Empyt from "../../home/components/Empty";
 import CartItem from "./CartItem";
-import { Button } from "../../movies/Movies.styles";
 import { convertToBRACurrency } from "../../../utils/convertToBRACurrency";
 import useCart from "../hooks/useCart";
+import Button from "../../../common/components/button/Button";
 
 const Cart: React.FC = () => {
   // Hooks

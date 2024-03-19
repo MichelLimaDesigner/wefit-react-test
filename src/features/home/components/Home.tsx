@@ -2,7 +2,6 @@ import useMovies from "../../movies/hooks/useMovies"
 import Loader from "../../../common/components/loader/Loader";
 import Empyt from "./Empty";
 import MoviesContainer from "../../movies/components/MoviesContainer";
-import Cart from "../../cart/components/Cart";
 
 const Home: React.FC = () => {
   // Hooks
@@ -15,7 +14,6 @@ const Home: React.FC = () => {
   return(
     <div>
       <MoviesContainer movies={movies}/>
-      <Cart />
     </div>
   )
 }

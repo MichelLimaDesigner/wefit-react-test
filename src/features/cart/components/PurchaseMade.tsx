@@ -1,7 +1,7 @@
 import { Title } from "../../home/Home.styles"
-import { Button } from "../../movies/Movies.styles"
 import { Purchased } from "../Cart.styles"
 import purchasedImg from "../../../assets/img/purchased.png";
+import Button from "../../../common/components/button/Button";
 
 const PurchaseMade = () => {
   return(

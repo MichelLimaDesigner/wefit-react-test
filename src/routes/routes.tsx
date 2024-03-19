@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Template from "../common/components/template/Template";
 import Loader from "../common/components/loader/Loader";
 const Home = lazy(() => import('../features/home/components/Home'));
+const Cart = lazy(() => import('../features/cart/components/Cart'));
+
 
 const AppRouter: React.FC = () => {
   return (
@@ -11,6 +13,7 @@ const AppRouter: React.FC = () => {
         <Routes >
           <Route path="/" element={<Template />}>
             <Route path="/" element={<Home />} />
+            <Route path="/carrinho" element={<Cart />} />
           </Route>
         </Routes>
       </BrowserRouter>

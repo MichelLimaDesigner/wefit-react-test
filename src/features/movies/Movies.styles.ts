@@ -44,32 +44,3 @@ export const CardImg = styled.div`
     width: 100%;
   }
 `;
-
-export const Button = styled.button`
-  width: 100%;
-  max-width: 400px;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: ${(props) =>
-    props.isAdded ? "var(--secondary-color)" : "var(--primary-color)"};
-  color: #ffffff;
-  padding: 1rem;
-  margin: auto;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  transition: all 0.3s linear;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => !props.isAdded && "#0073a1"};
-  }
-
-  figure {
-    display: flex;
-    gap: 0.5rem;
-    font-weight: 400;
-  }
-`;

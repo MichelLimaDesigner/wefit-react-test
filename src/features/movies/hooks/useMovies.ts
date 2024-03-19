@@ -9,7 +9,6 @@ const useMovies = () => {
 
   useEffect(() => {
     getMovies();
-    console.log("aqui");
   }, []);
 
   const getMovies = async () => {

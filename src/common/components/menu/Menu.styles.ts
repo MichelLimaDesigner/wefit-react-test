@@ -14,10 +14,12 @@ export const Logo = styled.img`
 `;
 
 export const Cart = styled.div`
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  text-align: right;
+  a {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    text-align: right;
+  }
 
   h5 {
     font-size: 1rem;

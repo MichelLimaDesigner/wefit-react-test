@@ -26,12 +26,18 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+
   :root {
     --bg-color: #2f2e41;
     --text-gray-light: #999999;
     --bg-card: #ffffff;
     --primary-color: #009edd;
     --secondary-color: #039b00;
+    --bg-btn-hover: #0073a1;
   }
 
   .text-right{

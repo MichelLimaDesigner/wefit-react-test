@@ -1,9 +1,10 @@
-import { Button, Card, CardImg } from "../Movies.styles"
+import { Card, CardImg } from "../Movies.styles"
 import addToCartImg from "../../../assets/img/icons/add-to-cart.png";
 import { Product } from "../movies.types";
 import { convertToBRACurrency } from "../../../utils/convertToBRACurrency";
 import useCart from "../../cart/hooks/useCart";
 import { IItem } from "../../cart/cart.types";
+import Button from "../../../common/components/button/Button";
 
 interface Card {
   product: Product
@@ -17,8 +18,8 @@ const MovieCard: React.FC<Card> = ({product}) => {
   const addItemToCart = () => {
     const item: IItem = {
       product: product,
-      quantity: 1,
-      value: product.price
+      quantity: quantityInCart + 1,
+      value: quantityInCart > 0 ? quantityInCart * product.price : product.price
     }
 
     addItem(item);
