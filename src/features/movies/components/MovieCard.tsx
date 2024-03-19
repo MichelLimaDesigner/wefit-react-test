@@ -11,7 +11,8 @@ interface Card {
 
 const MovieCard: React.FC<Card> = ({product}) => {
   // Hooks
-  const {addItem} = useCart();
+  const {addItem, getItem} = useCart();
+  const quantityInCart = getItem(product.id);
 
   const addItemToCart = () => {
     const item: IItem = {
@@ -30,10 +31,10 @@ const MovieCard: React.FC<Card> = ({product}) => {
       </CardImg>
       <h4>{product.title}</h4>
       <h5>{convertToBRACurrency(product.price)}</h5>
-      <Button onClick={addItemToCart}>
+      <Button onClick={addItemToCart} isAdded={quantityInCart > 0}>
         <figure>
           <img src={addToCartImg} alt="Adicionar ao Carrinho" />
-          <figcaption>0</figcaption>
+          <figcaption>{quantityInCart}</figcaption>
         </figure>
         ADICIONAR AO CARRINHO
       </Button>

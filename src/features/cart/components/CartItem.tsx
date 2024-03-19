@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Item, ItemHead, ItemHeader, ItemImage, ItemPrice, ItemQtdInput } from "../Cart.styles"
+import { Item, ItemHeader, ItemImage, ItemPrice, ItemQtdInput } from "../Cart.styles"
 import { IItem } from "../cart.types"
 import { ButtonIcon } from "../../../common/styles/GlobalStyles"
 import minusIcon from "../../../assets/img/icons/minus.png";

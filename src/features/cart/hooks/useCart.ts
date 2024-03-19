@@ -7,6 +7,12 @@ const useCart = () => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
 
+  const getItem = (itemID: number) => {
+    const item = cart.items.find((item) => item.product.id === itemID);
+    const quantityInCart = item?.quantity || 0;
+    return quantityInCart;
+  };
+
   const addItem = (item: IItem) => {
     const items: IItem[] = [...cart.items];
     const itemIndex = items.findIndex((e) => e.product.id === item.product.id);
@@ -52,6 +58,7 @@ const useCart = () => {
 
   return {
     cart,
+    getItem,
     addItem,
     removeItem,
   };

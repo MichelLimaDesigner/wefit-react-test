@@ -50,7 +50,8 @@ export const Button = styled.button`
   max-width: 400px;
   border: none;
   border-radius: 0.25rem;
-  background-color: var(--primary-color);
+  background-color: ${(props) =>
+    props.isAdded ? "var(--secondary-color)" : "var(--primary-color)"};
   color: #ffffff;
   padding: 1rem;
   margin: auto;
@@ -63,7 +64,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #0073a1;
+    background-color: ${(props) => !props.isAdded && "#0073a1"};
   }
 
   figure {
