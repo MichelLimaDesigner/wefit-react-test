@@ -16,7 +16,7 @@ export const CartContent = styled.div`
 export const ContentHeader = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
   font-weight: 700;
   color: var(--text-gray-light);
   margin-bottom: 2rem;
@@ -25,9 +25,23 @@ export const ContentHeader = styled.div`
 export const Item = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
   align-items: center;
   margin-bottom: 2rem;
+`;
+
+export const ItemHeader = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  h3,
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
 `;
 
 export const ItemImage = styled.div`
@@ -60,9 +74,26 @@ export const ItemPrice = styled.h5`
   font-size: 1rem;
 `;
 
+export const TotalPrice = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-gray-light);
+  }
+`;
+
 export const ContentFooter = styled.div`
   width: 100%;
-  border-top: 1px solid;
+  border-top: 1px solid #999999;
   margin-top: 1rem;
   padding-top: 1rem;
   display: flex;

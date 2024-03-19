@@ -1,4 +1,4 @@
-import { CartContent, ContentFooter, ContentHeader } from "../Cart.styles"
+import { CartContent, ContentFooter, ContentHeader, TotalPrice } from "../Cart.styles"
 import Empyt from "../../home/components/Empty";
 import CartItem from "./CartItem";
 import { Button } from "../../movies/Movies.styles";
@@ -33,9 +33,12 @@ const Cart: React.FC = () => {
         <Button >
           FINALIZAR PEDIDO
         </Button>
-        <div>
-          Total: {convertToBRACurrency(cart.totalValue)}
-        </div>
+        <TotalPrice>
+          <h4>TOTAL:</h4>
+          <h3>
+            {convertToBRACurrency(cart.totalValue)}
+          </h3>
+        </TotalPrice>
       </ContentFooter>
     </CartContent>
   )

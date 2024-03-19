@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Item, ItemImage, ItemPrice, ItemQtdInput } from "../Cart.styles"
+import { Item, ItemHead, ItemHeader, ItemImage, ItemPrice, ItemQtdInput } from "../Cart.styles"
 import { IItem } from "../cart.types"
 import { ButtonIcon } from "../../../common/styles/GlobalStyles"
 import minusIcon from "../../../assets/img/icons/minus.png";
@@ -46,9 +46,15 @@ const CartItem: React.FC<ICardItem> = ({item}) => {
 
   return (
     <Item>
-      <ItemImage >
-        <img src={item.product.image} alt="" />
-      </ItemImage>
+      <ItemHeader >
+        <ItemImage >
+          <img src={item.product.image} alt="" />
+        </ItemImage>
+        <div>
+          <h3>{item.product.title}</h3>
+          <h4>{convertToBRACurrency(item.product.price)}</h4>
+        </div>
+      </ItemHeader>
 
       <ItemQtdInput>
         <ButtonIcon onClick={handleDecreaseQtd}>
