@@ -1,8 +1,7 @@
 import useMovies from "../../movies/hooks/useMovies"
-import MovieCard from "../../movies/components/MovieCard"
-import { CardsContainer } from "../../movies/Movies.styles";
 import Loader from "../../../common/components/loader/Loader";
 import Empyt from "./Empty";
+import MoviesContainer from "../../movies/components/MoviesContainer";
 
 const Home: React.FC = () => {
   // Hooks
@@ -14,15 +13,7 @@ const Home: React.FC = () => {
 
   return(
     <div>
-      <CardsContainer >
-        {
-          movies.map(movie => {
-            return(
-              <MovieCard product={movie} key={movie.id} />
-            )
-          })
-        }
-      </CardsContainer>
+      <MoviesContainer movies={movies}/>
     </div>
   )
 }
